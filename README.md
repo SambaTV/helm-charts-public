@@ -1,3 +1,4 @@
-# Riskfocus Helm Charts
+# Helm Charts
 
-This repo includes Apache Flink helm chart which can be used for developing purposes.
+This repo is a fork of https://github.com/riskfocus/helm-charts-public repository.
+Thank for your work!
