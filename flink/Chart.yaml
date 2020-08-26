@@ -7,10 +7,7 @@ type: application
 appVersion: "1.11.1"
 version: 0.2.0
 
-maintainers:
-  - name: charts-maintainers
-    email: charts-maintainers@riskfocus.com
-home: https://github.com/riskfocus/helm-charts-public
+home: https://github.com/SambaTV/helm-charts-public
 
 
 dependencies:
