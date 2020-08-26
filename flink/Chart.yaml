@@ -1,9 +1,21 @@
-apiVersion: v1
-appVersion: "1.10.1"
-description: Chart for Apache Flink
+apiVersion: v2
 name: flink
-version: 0.1.16
+description: Chart for Apache Flink
+
+type: application
+
+appVersion: "1.11.1"
+version: 0.2.0
+
 maintainers:
   - name: charts-maintainers
     email: charts-maintainers@riskfocus.com
 home: https://github.com/riskfocus/helm-charts-public
+
+
+dependencies:
+  - name: zookeeper
+    version: "2.1.*"
+    repository: https://kubernetes-charts-incubator.storage.googleapis.com
+    condition: zookeeper.enabled
+

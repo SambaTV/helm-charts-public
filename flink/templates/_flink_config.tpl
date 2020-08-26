@@ -46,6 +46,7 @@ provide jobmanager.rpc.address to Taskmanagers
     high-availability.zookeeper.path.root: {{ .Values.jobmanager.highAvailability.zookeeperRootPath }}
     high-availability.cluster-id: {{ .Values.jobmanager.highAvailability.clusterId }}
     high-availability.storageDir: {{ .Values.jobmanager.highAvailability.storageDir }}
+    high-availability.zookeeper.storageDir: {{ .Values.jobmanager.highAvailability.storageDir }}
     high-availability.jobmanager.port: {{ .Values.jobmanager.highAvailability.syncPort }}
     {{- else }}
     jobmanager.rpc.address: {{ include "flink.fullname" . }}-jobmanager

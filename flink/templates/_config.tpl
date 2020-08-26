@@ -12,6 +12,13 @@ ServiceAccount for Taskmanager
 {{ default "taskmanager" .Values.taskmanager.serviceAccount.name }}
 {{- end -}}
 
+
+{{- define "flink.plugins" -}}
+{{- range $key, $value := .Values.flink.plugins -}}
+mkdir ./plugins/{{ $key }} && cp {{ $value }} ./plugins/{{ $key }}/ &&
+{{- end -}}
+{{- end -}}
+
 {{/*
 Generate command for Jobmanager
 */}}
@@ -19,7 +26,11 @@ Generate command for Jobmanager
 {{ $cmd := .Values.jobmanager.command }}
 {{- if .Values.jobmanager.highAvailability.enabled }}
 {{ $cmd = (tpl .Values.jobmanager.highAvailability.command .) }}
-{{- end }}
+{{- end -}}
+{{ include "flink.plugins" . }}
+{{- range .Values.flink.additionalJars -}}
+wget {{ . }} -P /opt/flink/lib/ &&
+{{- end -}}
 {{- if .Values.jobmanager.additionalCommand -}}
 {{ printf "%s && %s" .Values.jobmanager.additionalCommand $cmd }}
 {{- else }}
@@ -32,6 +43,10 @@ Generate command for Taskmanager
 */}}
 {{- define "taskmanager.command" -}}
 {{ $cmd := .Values.taskmanager.command }}
+{{ include "flink.plugins" . }}
+{{- range .Values.flink.additionalJars -}}
+ wget {{ . }} -P /opt/flink/lib/ &&
+{{- end -}}
 {{- if .Values.taskmanager.additionalCommand -}}
 {{ printf "%s && %s" .Values.taskmanager.additionalCommand $cmd }}
 {{- else }}
