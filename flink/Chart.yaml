@@ -7,7 +7,7 @@ type: application
 appVersion: "1.11.1"
 version: 0.2.0
 
-home: https://github.com/SambaTV/helm-charts-public
+home: https://sambatv.github.io/helm-charts-public
 
 
 dependencies:

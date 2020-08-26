@@ -3,18 +3,18 @@ entries:
   flink:
   - apiVersion: v2
     appVersion: 1.11.1
-    created: "2020-08-26T15:00:21.049368+02:00"
+    created: "2020-08-26T15:13:23.83701+02:00"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
       repository: https://kubernetes-charts-incubator.storage.googleapis.com
       version: 2.1.*
     description: Chart for Apache Flink
-    digest: 56e3e55ae880e1e84301b8393fd843401e5d98e5dcba6ab77803fdb65e74151f
-    home: https://github.com/SambaTV/helm-charts-public
+    digest: 0d0748a19e5b93b8f4061537db452faab3ac5c67f6f58d367212f5536403ee2d
+    home: https://sambatv.github.io/helm-charts-public
     name: flink
     type: application
     urls:
     - flink-0.2.0.tgz
     version: 0.2.0
-generated: "2020-08-26T15:00:21.04613+02:00"
+generated: "2020-08-26T15:13:23.832593+02:00"
